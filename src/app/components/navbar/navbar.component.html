@@ -13,14 +13,10 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li *ngIf="!(auth.user | async)" class="nav-item"><a class="btn btn-success" routerLink="login">Login</a></li>
-    <li *ngIf="auth.user | async" class="nav-item"><a class="btn btn-primary text-white" (click)="logout()">Logout</a></li>
+      <li class="nav-item nav-link disabled text-dark" *ngIf="auth.user | async">Hello, {{(auth.user|async)?.displayName}}</li>
+      <li *ngIf="auth.user | async" class="nav-item"><a class="nav-link" routerLink="dashboard">My Events</a></li>
+      <li *ngIf="!(auth.user | async)" class="nav-item"><a class="nav-link text-success" routerLink="login">Login</a></li>
+      <li *ngIf="auth.user | async" class="nav-item"><a class="nav-link text-danger" (click)="logout()">Logout</a></li>
     </ul>
-    <!--<div *ngIf="!(auth.user | async)" class="btn btn-success" routerLink="login">
-      Sign In
-    </div>
-    <div *ngIf="(auth.user | async)" class="btn btn-primary" (click)="logout()">
-      Logout
-    </div>-->
   </div>
 </nav>

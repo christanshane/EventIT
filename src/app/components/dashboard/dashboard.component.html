@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="row">
+    <h1>Your Current Events</h1>
+  </div>
+  <div *ngIf="events?.length > 0;else noEvents">
+
+  <ul *ngFor="let event of events" class="collection">
+
+    <li class="collection-item" (dblclick)="deleteTask($event, event)">
+
+      <strong>{{ event.title }}</strong> : {{ event.desc }} 
+
+    </li>
+  </ul>
+
+</div>
+
+
+
+<ng-template #noEvents>
+
+  <h5>You have no events yet</h5>
+
+</ng-template>
+</div>
