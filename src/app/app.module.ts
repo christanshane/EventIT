@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
+    CreateEventComponent,
   ],
   imports: [
     BrowserModule,
