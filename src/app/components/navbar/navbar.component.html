@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-light bg-secondary">
+  <a class="navbar-brand" routerLink="" >EventIT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="events">Events</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li *ngIf="!(auth.user | async)" class="nav-item"><a class="btn btn-success" routerLink="login">Login</a></li>
+    <li *ngIf="auth.user | async" class="nav-item"><a class="btn btn-primary text-white" (click)="logout()">Logout</a></li>
+    </ul>
+    <!--<div *ngIf="!(auth.user | async)" class="btn btn-success" routerLink="login">
+      Sign In
+    </div>
+    <div *ngIf="(auth.user | async)" class="btn btn-primary" (click)="logout()">
+      Logout
+    </div>-->
+  </div>
+</nav>
