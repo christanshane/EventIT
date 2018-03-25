@@ -12,13 +12,15 @@ export class EventsComponent implements OnInit {
   event: Event = {
     title:'',
     desc:'',
-    organizer:'',
+    organizerName:'',
+    organizerId:'',
     venue:'',
     date:'',
   }
   folder:any;
 
-  constructor(private eventsService:EventsService) { }
+  constructor(private eventsService:EventsService) {
+  }
 
   ngOnInit() {
     this.eventsService.getEvents().subscribe(events =>{

@@ -33,4 +33,14 @@ export class EventsService {
    addEvent(event:Event){
      this.eventsCollection.add(event);
    }
+
+   getOwnEvents(uid: String){
+     return this.angularFirestore.collection(`events`, (ref) => ref.where(`organizerId`,'==',uid)).snapshotChanges().map(changes =>{
+       return changes.map(a =>{
+         const data = a.payload.doc.data() as Event;
+         data.id = a.payload.doc.id;
+         return data;
+       });
+     });
+   }
 }

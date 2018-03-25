@@ -3,6 +3,7 @@ import { AngularFireAuth, AngularFireAuthProvider } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { moveIn, fadeInOut, fallIn } from 'angular-router-animations';
 import * as firebase from 'firebase';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import * as firebase from 'firebase';
 export class LoginComponent implements OnInit {
   error:any;
 
-  constructor(public af: AngularFireAuth, private router: Router) { 
+  constructor(public af: AngularFireAuth, private router: Router, public auth: AuthService) { 
     this.af.authState.subscribe(auth =>{
       if(auth){
         this.router.navigateByUrl('/');
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.af.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider)       
     .then(
       (success) => {
+        this.auth.updateUserData(success.user);
         this.router.navigate(['/']);
       }).catch(
         (err) => {
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
   loginGoogle(){
     this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(
       (success) => {
+        this.auth.updateUserData(success.user);
         this.router.navigate(['/']);
       }).catch(
         (err) => {
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
   loginTwitter(){
     this.af.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider).then(
       (success) =>{
+        this.auth.updateUserData(success.user);
         this.router.navigate(['/']);
       }).catch(
         (err) =>{
