@@ -13,6 +13,7 @@ import { AppRoutingModule } from './components/app/app-routing.module';
 import { environment } from '../environments/environment';
 import { EventsService } from './services/events.service';
 import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -38,6 +39,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [EventsService,AuthService,AngularFireAuth],
   bootstrap: [AppComponent]

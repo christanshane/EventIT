@@ -29,13 +29,8 @@ export class EventsService {
        });
      });
    }
-   
-   create(content: string) {
-      const note = {
-        content,
-        hearts: 0,
-        time: new Date(),
-      };
-    return this.eventsCollection.add(note);
 
+   addEvent(event:Event){
+     this.eventsCollection.add(event);
+   }
 }

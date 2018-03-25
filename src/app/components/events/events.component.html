@@ -2,14 +2,15 @@
   <div class="row">
     <h1>Events</h1>
   </div>
-  <div *ngFor="let event of events" class="row mt-4">
-    <div class="col-lg-12">
+  <div class="row mt-4">
+    <div *ngFor="let event of events" class="col-md-4 mt-1 mb-1">
       <div class="card">
-        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+        <!--<img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">-->
         <div class="card-body">
             <h4 class="card-title">{{event.title}}</h4>
             <p class="card-text">{{event.desc}}</p>
-            <a href="#" class="btn btn-primary">Button</a>
+            <small>{{event.date | date:'MMM d, yyyy'}}</small> <br>
+            <a href="#" class="btn btn-primary">Join Event</a>
         </div>
       </div>
     </div>

@@ -10,12 +10,11 @@ import { Event } from '../../event-model';
 export class EventsComponent implements OnInit {
   events:Event[];
   event: Event = {
-    id:'',
     title:'',
     desc:'',
-    category:'',
-    img:'',
-    path:'',
+    organizer:'',
+    venue:'',
+    date:'',
   }
   folder:any;
 

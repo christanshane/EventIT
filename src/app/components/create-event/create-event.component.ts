@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { moveIn, fallIn } from 'angular-router-animations';
 import { Event } from '../../event-model';
+import { EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'app-create-event',
@@ -11,17 +12,20 @@ import { Event } from '../../event-model';
 })
 export class CreateEventComponent implements OnInit {
   event: Event = {
-  id:'',
   title:'',
   desc:'',
-  category:'',
-  img:'',
-  path:'',
+  organizer:'',
+  venue:'',
+  date:'',
 }
 
-  constructor() { }
+  constructor(private eventsService: EventsService) { }
 
   ngOnInit() {
+  }
+  
+  onSubmit(){
+    this.eventsService.addEvent(this.event);
   }
 
 }
