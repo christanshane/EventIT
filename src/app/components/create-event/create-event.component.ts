@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { moveIn, fallIn } from 'angular-router-animations';
+import { Event } from '../../event-model';
 
 @Component({
   selector: 'app-create-event',
@@ -9,6 +10,14 @@ import { moveIn, fallIn } from 'angular-router-animations';
   host:{'[@fallIn]':''}
 })
 export class CreateEventComponent implements OnInit {
+  event: Event = {
+  id:'',
+  title:'',
+  desc:'',
+  category:'',
+  img:'',
+  path:'',
+}
 
   constructor() { }
 

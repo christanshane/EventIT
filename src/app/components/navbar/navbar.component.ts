@@ -25,8 +25,4 @@ export class NavbarComponent implements OnInit {
     this.auth.signOut();
   }
 
-  isLoggedIn() {
-    return this.auth.isLoggedIn();
-  }
-
 }
